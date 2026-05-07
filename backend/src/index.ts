@@ -1,9 +1,12 @@
+import dotenv from 'dotenv'
 import express from 'express'
+
+dotenv.config();
+
 const app= express();
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req,res) => {
-    const url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
-    console.log("Adresa website-ului: " + url);
     res.json({message:"Hello and welcome !"})
 })
 
@@ -25,8 +28,9 @@ app.get('/health' ,(req,res)=> {
 } )
 
 
-app.listen(3000 , () => {
-    const url = "http://localhost:3000";
+app.listen(PORT, () => {
+    
+    const url = "http://localhost:" + PORT;
     console.log("Server open on " + url);
-    console.log("Express is working.Port open on 3000 ");
+
 });
