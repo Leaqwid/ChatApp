@@ -24,13 +24,13 @@ app.get('/api/user/:id' ,(req,res) => {
 })
 
 app.get('/health' ,(req,res)=> {
-    res.json({status:"Succes" , message: "Server is running succesfuly" })
+    res.json({status:"Succes",message:"OK"});
 } )
 
 
 app.listen(PORT, () => {
-    
+    console.log("Server is running succesfuly");
     const url = "http://localhost:" + PORT;
-    console.log("Server open on " + url);
+    console.log("Address :  " + url);
 
 });
